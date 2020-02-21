@@ -20,14 +20,15 @@ class SlotMachine extends React.Component {
 
   render() {
     let message = ''
-    if (this.state.symbols.every(v => v == this.state.symbols[0])) {
+    const win = this.state.symbols.every(v => v == this.state.symbols[0])
+    if (win) {
        message ='Congratulations, you win!'
     } else {
       message = 'Sorry, pay again!'
     }
     return (<div>
             <CurrentSymbols symbols={this.state.symbols}/>
-            <p> {message} </p> <br/>
+            <p className={win ? 'p-win':'p-lose'}> {message} </p> <br/>
             <Trigger parent={this}/>
           </div>)
   }

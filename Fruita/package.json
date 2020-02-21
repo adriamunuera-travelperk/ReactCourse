@@ -1,0 +1,11 @@
+{
+  "name": "fruita",
+  "version": "1.0.0",
+  "description": "App feta per l'Udemy Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Adrià Munuera - TK",
+  "license": "MIT"
+}

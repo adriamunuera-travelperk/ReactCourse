@@ -1,0 +1,30 @@
+p {
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+div {
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+body {
+  background-color: #efefef;
+}
+
+button {
+  border-radius: 5px;
+  font-weight: bold;
+
+}
+
+.p-win {
+  color: green;
+}
+
+.p-lose {
+  color: red;
+}
