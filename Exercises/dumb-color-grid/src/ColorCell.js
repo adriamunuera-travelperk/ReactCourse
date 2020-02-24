@@ -5,9 +5,8 @@ class ColorCell extends Component {
 
   changeMyself = () => {
     const color = this.props.color
-    const parent = this.props.parent
     const index = this.props.idx
-    parent.requestNewColor(color, index)
+    this.props.action(color, index)
   }
 
 

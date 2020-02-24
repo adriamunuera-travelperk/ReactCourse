@@ -14,11 +14,12 @@ class ColorGrid extends Component {
   }
 
   requestNewColor = (oldColor,index) =>{
-    console.log(oldColor, index)
-    let newColor = this.randomColor()
-    while (newColor === oldColor) {
+    //console.log(oldColor, index)
+    let newColor = ''
+    do {
       newColor = this.randomColor()
-    }
+    } while (newColor === oldColor)
+
     const newGrid = this.state.grid
     newGrid[index] = newColor
     this.setState({grid: newGrid})
@@ -35,7 +36,7 @@ class ColorGrid extends Component {
   render() {
     return(<div className='colorGrid'>
             {this.state.grid.map((color, index) =>
-               <ColorCell color={color} parent={this} key={index} idx={index}/>)}
+               <ColorCell color={color} action={this.requestNewColor} idx={index}/>)}
           </div>)
   }
 }
