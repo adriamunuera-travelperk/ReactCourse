@@ -1,0 +1,16 @@
+.Pokecard {
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+}
+
+.Zoom {
+  transition: transform .2s; /* Animation */
+}
+
+.Zoom:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  background-color: #EEEEEE;
+}
