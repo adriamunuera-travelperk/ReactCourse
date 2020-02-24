@@ -1,0 +1,22 @@
+
+.Coin {
+  width: 20vh;
+  height: 20vh;
+  margin: 10px;
+  display: inline-block;
+}
+
+.Button {
+  border-width: 0px;
+  background-color: blue;
+  color:white;
+  display:inline-block;
+}
+
+.Flipper {
+  text-align: center;
+}
+
+#body{
+  background-color: blue;
+}
