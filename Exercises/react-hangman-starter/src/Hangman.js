@@ -7,6 +7,7 @@ import img3 from "./3.jpg";
 import img4 from "./4.jpg";
 import img5 from "./5.jpg";
 import img6 from "./6.jpg";
+import {randomWord} from './words.js'
 
 class Hangman extends Component {
   /** by default, allow 6 guesses and use provided gallows images. */
@@ -17,7 +18,7 @@ class Hangman extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { nWrong: 0, guessed: new Set(), answer: "apple", maxWrong: this.props.maxGuesses};
+    this.state = { nWrong: 0, guessed: new Set(), answer: randomWord(), maxWrong: this.props.maxGuesses};
     this.handleGuess = this.handleGuess.bind(this);
   }
 
@@ -42,17 +43,26 @@ class Hangman extends Component {
     }));
   }
 
-  eqSet = (as, bs) => {
-      if (as.size !== bs.size) return false;
-      for (var a of as) if (!bs.has(a)) return false;
-      return true;
+  isSubset = (firstSet, secondSet) => {
+    if (firstSet.size > secondSet.size) return false;
+    else {
+        for (var elem of firstSet) {
+            if (!secondSet.has(elem)) return false;
+        }
+    }
+    return true;
   }
+
 
   /** generateButtons: return array of letter buttons to render */
   generateButtons = () => {
     if (this.state.nWrong >= this.props.maxWrong) {
-      return <h2>YOU LOSE</h2>
-    } else if (this.eqSet(this.state.guessed, new Set(this.state.answer))) {
+      return (<div>
+                <h2>YOU LOSE</h2>
+                <p>The word was {this.state.answer}</p>
+            </div>)
+
+    } else if (this.isSubset(this.state.answer, this.state.guessed)) {
       return <h2>YOU WIN, CONGRATULATIONS</h2>
     } else {
       return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
@@ -81,5 +91,6 @@ class Hangman extends Component {
     );
   }
 }
+
 
 export default Hangman;
